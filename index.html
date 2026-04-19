@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Joydip Acharjee — UI/UX Designer & Frontend Developer. Crafting bold digital experiences." />
+  <title>Joydip Acharjee — Designer</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="variables.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="extensions.css" />
+
+  <!-- Scripts (GSAP & Plugins loaded at bottom for performance) -->
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237a0000'/><text x='50%' y='60%' text-anchor='middle' font-size='18' font-family='serif' fill='%23f5e6d3'>J</text></svg>" />
+</head>
+<body>
+
+  <!-- ■ CURSOR (NEW SMART CURSOR) -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-glow"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- ■ ENVIRONMENT EFFECTS (Dust & Flicker) -->
+  <div class="environment-layer" id="dust-layer"></div>
+  <div class="light-flicker-overlay env-flicker"></div>
+
+  <!-- ■ BACKGROUND DEPTH (CINEMATIC LAYERS) -->
+  <div class="parallax-wrap" aria-hidden="true">
+    <div class="parallax-layer far" style="background-image: url('images/noise.png');"></div>
+    <div class="parallax-layer mid"></div>
+    <div class="parallax-layer fore"></div>
+  </div>
+
+  <div id="particles-js" style="position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0.3;">
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- ■ PAGE TRANSITION OVERLAY -->
+  <div id="scene-overlay" class="scene-overlay">
+    <div class="scene-wipe"></div>
+    <div class="scene-text">Navigating the Grand Line...</div>
+  </div>
+
+  <!-- ■ QUICK NAV OVERLAY (Press 'M') -->
+  <div id="quick-nav" class="quick-nav-overlay">
+    <div class="quick-nav-content">
+      <h3 class="quick-nav-title">Quick Destination</h3>
+      <div class="quick-nav-grid">
+        <a href="#hero" class="q-link"><span>01</span> Hero</a>
+        <a href="#about" class="q-link"><span>02</span> About</a>
+        <a href="#experience" class="q-link"><span>03</span> Experience</a>
+        <a href="#certificates" class="q-link"><span>04</span> Mastery & Certs</a>
+        <a href="#projects" class="q-link"><span>05</span> Projects</a>
+        <a href="#collaboration" class="q-link"><span>06</span> Contact</a>
+      </div>
+      <p class="quick-nav-hint">Press <span>ESC</span> to close</p>
+    </div>
+  </div>
+
+
+  <!-- ■ NAVIGATION -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo">J<span>.</span>A</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#collaboration">Contact</a></li>
+    </ul>
+
+    <div class="nav-extra">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="cyber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </button>
+
+      <a href="javascript:void(0)" class="nav-cta js-hire-me-trigger">Hire Me</a>
+    </div>
+
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+
+  <!-- ■ HERO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-bg-text" aria-hidden="true">Portfolio</div>
+
+    <!-- Decorative blobs -->
+    <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(122,0,0,0.2);filter:blur(80px);top:10%;right:15%;pointer-events:none;" aria-hidden="true"></div>
+    <div style="position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(80,0,0,0.3);filter:blur(60px);bottom:20%;left:5%;pointer-events:none;" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+
+      <!-- Left: UX / UI / WEB + socials -->
+      <div class="hero-left">
+        <div class="role-stack">
+          <span>UX</span>
+          <span>UI</span>
+          <span>WEB</span>
+        </div>
+        <div class="social-mini">
+          <span>insta:</span>
+          <a href="https://instagram.com/_kaisen01" target="_blank">_kaisen01</a>
+          <span style="margin-top:8px;">Linkdin:</span>
+          <a href="https://linkedin.com/in/joydip-acharjee-44044a372/" target="_blank">Joydip Acharjee</a>
+          <span style="margin-top:8px;">GitHub:</span>
+          <a href="https://github.com/joydip-acharjee">kaisen2922</a>
+          <span style="margin-top:8px;">Email ID:</span>
+          <a href="mailto:akashacherjeep9831@gmail.com">akashacherjeep9831@gmail.com</a>
+        </div>
+      </div>
+
+      <!-- Center: Profile image -->
+      <div class="hero-center">
+        <div class="hero-image-wrap">
+          <!-- Profile image 3D Flip Card -->
+          <div class="flip-card-container" style="perspective: 1000px; width: 100%; aspect-ratio: 3/4;">
+            <div class="flip-card-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d;">
+              
+              <!-- Front -->
+              <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 40px 40px 50% 50%; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; background: var(--bg-deep);">
+                <img src="images/profile1.jpeg" alt="Joydip Acharjee Profile" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+
+              <!-- Back -->
+              <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border-radius: 40px 40px 50% 50%; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.5); background: var(--bg-deep);">
+                <img src="images/card flip images.jpeg" alt="Joydip Alternate Portrait" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              </div>
+
+            </div>
+          </div>
+          <div class="hero-name-badge">
+            <span>Joydip Acharjee</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: DESIGNER text -->
+      <div class="hero-right">
+        <div class="designer-text">
+          <span class="brand-name">JOYDIP</span>
+          <span class="d1">DESI</span>
+          <span class="d2">GNER</span>
+        </div>
+        
+        <div class="hero-cta-box reveal reveal-delay-4">
+          <p class="hero-copy-text">
+            I design and build high-impact digital experiences <br>
+            that are fast, modern, and user-focused.
+          </p>
+          <a href="#mastery" id="start-journey-btn" class="btn-journey magnetic-btn">
+            <span class="btn-text">Start Journey 🚢</span>
+            <div class="btn-glow"></div>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /hero-inner -->
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ■ STORY MARKER 1 -->
+  <div class="story-divider reveal" aria-hidden="true">
+    <div class="story-line"></div>
+    <span class="story-text">The journey begins with a name...</span>
+    <div class="story-line"></div>
+  </div>
+
+
+  <!-- ■ TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="dot"></span> UI/UX Design</div>
+      <div class="ticker-item"><span class="dot"></span> Frontend Development</div>
+      <div class="ticker-item"><span class="dot"></span> Branding & Identity</div>
+      <div class="ticker-item"><span class="dot"></span> Web Applications</div>
+      <div class="ticker-item"><span class="dot"></span> Mobile Interfaces</div>
+      <div class="ticker-item"><span class="dot"></span> Design Systems</div>
+      <div class="ticker-item"><span class="dot"></span> Interactive Prototypes</div>
+      <div class="ticker-item"><span class="dot"></span> Creative Direction</div>
+    </div>
+  </div>
+
+
+  <!-- ■ ABOUT -->
+  <section id="about" class="section" aria-label="About me">
+
+    <!-- Decorative -->
+    <div class="about-blob blob-1" aria-hidden="true"></div>
+    <div class="about-blob blob-2" aria-hidden="true"></div>
+    <div class="deco-line" style="top:0;bottom:0;right:8%;height:100%;" aria-hidden="true"></div>
+
+    <div class="section-label reveal">Who Am I</div>
+    <h2 class="section-title reveal reveal-delay-1">
+      Crafting <em>bold</em><br>digital worlds
+    </h2>
+
+    <div class="about-grid">
+
+      <!-- Avatar col -->
+      <div class="about-avatar-col reveal reveal-delay-2" style="z-index: 50; position: relative;">
+        <div class="flip-card-container" style="perspective: 1000px; width: 100%; aspect-ratio: 3/4;">
+          <div class="flip-card-inner" style="position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; border-radius: var(--radius-lg);">
+            <!-- Front -->
+            <div class="flip-card-front about-avatar-frame" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: inherit; z-index: 2;">
+              <img src="images/avater.png" alt="Photo / Illustration" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <!-- Back -->
+            <div class="flip-card-back about-avatar-frame" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border-radius: inherit; z-index: 1;">
+              <img src="images/flip 2.jpeg" alt="Alternative Photo" style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+          </div>
+
+          <style>
+            .secret-storyline-popup {
+              position: absolute;
+              top: 50%;
+              right: 0;
+              transform: translate(0, -50%) scale(0.8) rotateY(-20deg);
+              opacity: 0;
+              visibility: hidden;
+              width: 340px;
+              background: linear-gradient(135deg, rgba(20,0,0,0.95), rgba(10,0,0,0.98));
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              border: 1px solid rgba(255, 60, 60, 0.4);
+              border-radius: var(--radius-md);
+              padding: 28px;
+              color: var(--cream);
+              z-index: -1;
+              pointer-events: none;
+              transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px rgba(160,0,0,0.4);
+            }
+            .flip-card-container:hover .secret-storyline-popup {
+              opacity: 1;
+              visibility: visible;
+              transform: translate(105%, -50%) scale(1) rotateY(0deg);
+              z-index: 10;
+            }
+            @media (max-width: 1024px) {
+              .flip-card-container:hover .secret-storyline-popup {
+                transform: translate(60%, -50%) scale(0.95);
+              }
+            }
+            @media (max-width: 768px) {
+              .secret-storyline-popup {
+                top: auto;
+                bottom: 20px;
+                right: 50%;
+                transform: translate(50%, 0) scale(0.8);
+                width: 90%;
+                text-align: center;
+              }
+              .flip-card-container:hover .secret-storyline-popup {
+                transform: translate(50%, 110%) scale(1);
+                z-index: 10;
+              }
+            }
+          </style>
+
+          <div class="secret-storyline-popup">
+             <p style="font-size:0.75rem; line-height:1.6; opacity:0.85; margin-bottom:8px;">In a world not ruled by oceans…<br>but by interfaces, systems, and digital experiences,<br>there existed a name whispered across every tech guild, startup, and design empire—</p>
+             <h4 style="font-family:var(--font-display); font-size:1.1rem; color:var(--gold); margin: 8px 0;">Joydip Acharjee.</h4>
+             <p style="font-size:0.75rem; line-height:1.6; opacity:0.85; margin-bottom:8px;">But no one called him that anymore.<br>They feared him as…</p>
+             <h3 style="font-family:var(--font-display); font-size:1.4rem; color:var(--red-accent); text-transform:uppercase; letter-spacing:0.05em; margin: 8px 0;">Monkey D. Kaisen</h3>
+             <p style="font-size:0.75rem; line-height:1.6; opacity:0.85; margin-bottom:8px;">The World Government of Systems tried to stop him.<br>Because he was dangerous.<br>Not with weapons—but with ideas.</p>
+             <p style="font-size:0.7rem; letter-spacing:0.15em; color:var(--cream-dark); margin-top:12px; text-transform:uppercase;">So they issued a bounty:</p>
+             <h2 style="font-family:var(--font-display); font-size:1.8rem; color:var(--gold); text-shadow: 0 0 15px rgba(212,169,106,0.6); margin: 4px 0; line-height:1;">$5,200,000,000</h2>
+             <p style="font-size:0.85rem; font-weight:800; letter-spacing:0.15em; color:var(--red-primary); text-transform:uppercase; margin-top:6px;">Dead or Alive</p>
+             <h4 style="font-family:var(--font-display); font-size:1rem; color:var(--cream); letter-spacing:0.05em; margin-top:2px;">Monkey D. Kaisen</h4>
+          </div>
+
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats mt-md">
+          <div class="stat-pill">
+            <div class="num" data-count="1">0</div>
+            <div class="label">Years Exp.</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num" data-count="18">0</div>
+            <div class="label">Projects</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num" data-count="2">0</div>
+            <div class="label">Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content card -->
+      <div class="about-content-card reveal reveal-delay-3">
+        <p class="about-intro">
+          My journey in design began with graphic design — and grew into something far greater.
+        </p>
+        <p class="about-body">
+          I’m Joydip Acharjee, a passionate UI/UX Designer and Front-End Developer focused on crafting intuitive, visually engaging, and user-centric digital experiences.
+           I combine design thinking with modern web technologies to build interfaces that are not only aesthetically refined but also highly functional.
+          As a fast learner with a growth mindset, I quickly adapt to new tools, trends, and technologies, constantly pushing myself to improve and stay ahead in the evolving digital landscape. 
+          I enjoy solving real-world problems through design, transforming ideas into seamless and impactful user experiences.
+        </p>
+        <p class="about-body">
+          My goal is to create meaningful digital products that deliver value, enhance user interaction, and leave a lasting impression.
+        </p>
+
+        <p class="section-label mt-md" style="font-size:0.68rem;">My Toolkit</p>
+        <div class="skills-list">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Framer</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">Illustrator</span>
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">Branding</span>
+          <span class="skill-tag">Design Systems</span>
+        </div>
+
+        <div style="margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#collaboration" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ■ EXPERIENCE SECTION -->
+  <section id="experience" class="section reveal" aria-label="Professional Experience">
+    <div class="container">
+      <div class="section-label">Trajectory</div>
+      <h2 class="section-title">Professional <em>Experience</em></h2>
+      
+      <div class="experience-timeline mt-lg">
+        <!-- Experience Item 1 -->
+        <article class="experience-card reveal reveal-delay-1">
+          <div class="exp-header">
+            <div class="exp-role-box">
+              <h3 class="exp-role">CSRBOX Internship</h3>
+              <span class="exp-company">Student Intern</span>
+            </div>
+            <span class="exp-duration">2025 DEC - 2026 JAN</span>
+          </div>
+          <ul class="exp-impact-list">
+            <li>CSRBOX- AICTE- IBM Skills Build Applied AI Internship where i Learn how to Design & Build with Artificial Intelligence.</li>
+            <li>Helped me to improve my UI designs with Artificial Intelligence.</li>
+            <li>In this Internship i Design a healthcare companion AI.</li>
+          </ul>
+
+          <a href="certificate/csrbox Internship Certificate 2025-26 (1).pdf" target="_blank" class="btn-exp-view">
+            <span>View Certificate</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <!-- Experience Item 2 -->
+        <article class="experience-card reveal reveal-delay-2">
+          <div class="exp-header">
+            <div class="exp-role-box">
+              <h3 class="exp-role">Cognifyz Technologies</h3>
+              <span class="exp-company">UI/UX Designer Intern</span>
+            </div>
+            <span class="exp-duration">2026 MAR - 2026 APR</span>
+          </div>
+          <ul class="exp-impact-list">
+            <li>Over the past month, I worked on</li>
+            <li>Designing user interfaces with better visual hierarchy</li>
+            <li>Improving user experience through clean and modern layouts</li>
+            <li>Creating product-focused UI components</li>
+          </ul>
+
+          <a href="certificate/Cognifyz Technologies Internship Certificate.pdf" target="_blank" class="btn-exp-view">
+            <span>View Certificate</span>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ■ CERTIFICATES SECTION -->
+  <section id="certificates" class="section reveal" aria-label="Certifications">
+    <div class="container" style="position: relative;">
+      <div class="section-label">Validation</div>
+      <h2 class="section-title">Recognized <em>Mastery</em></h2>
+      
+      <div class="certs-grid mt-lg">
+        <!-- Cert Card 1 -->
+        <div class="cert-card reveal reveal-delay-1">
+          <div class="cert-badge">Coursera</div>
+          <h3 class="cert-title">Google Foundations of User Experience (UX) Design</h3>
+          <p class="cert-year">2025</p>
+          <a href="certificate/Coursera.pdf" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Cert Card 2 -->
+        <div class="cert-card reveal reveal-delay-2">
+          <div class="cert-badge">Coursera</div>
+          <h3 class="cert-title">IIT Guwahati UX Design: An Introduction</h3>
+          <p class="cert-year">2025</p>
+          <a href="certificate/IIT Guwahati.pdf" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Cert Card 3 -->
+        <div class="cert-card reveal reveal-delay-3">
+          <div class="cert-badge">Oracle University</div>
+          <h3 class="cert-title">Oracle Certified Foundations Associate Certificate</h3>
+          <p class="cert-year">2025</p>
+          <a href="certificate/Oracle 2025 Certified.pdf" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Cert Card 4 -->
+        <div class="cert-card reveal reveal-delay-4">
+          <div class="cert-badge">Udemy</div>
+          <h3 class="cert-title">Complete Web & Mobile Designer: UI/UX, Figma</h3>
+          <p class="cert-year">2025</p>
+          <a href="#" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Cert Card 5 -->
+        <div class="cert-card reveal reveal-delay-5">
+          <div class="cert-badge">Forage</div>
+          <h3 class="cert-title">Deloitte Technology Job Simulation</h3>
+          <p class="cert-year">2025</p>
+          <a href="certificate/Deloitte Technology Job Simulation.pdf" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <!-- Cert Card 6 -->
+        <div class="cert-card reveal reveal-delay-6">
+          <div class="cert-badge">Gemini Certified Student</div>
+          <h3 class="cert-title">Gemini Certification for Students (K12)</h3>
+          <p class="cert-year">2025</p>
+          <a href="certificate/Gemini Certification for Students.pdf" target="_blank" class="btn-cert">
+            <span>View Certificate</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Hackathon Badges Wrapper -->
+      <div class="medal-badges-row reveal reveal-delay-6">
+        <!-- Badge 1: AGC -->
+        <div id="hack-badge" class="medal-badge" data-tooltip="2nd Place — Analytics Global Conference Event Hackathon 2026">
+          <div class="badge-glow"></div>
+          <div class="badge-content">
+            <span class="badge-icon">🏆</span>
+            <span class="badge-text">Hackathon Winner</span>
+          </div>
+        </div>
+
+        <!-- Badge 2: Amity -->
+        <div id="amity-badge" class="medal-badge" data-tooltip="Rank 3 — AI - WebForge Hackathon (Amity School of Engineering & Technology)">
+          <div class="badge-glow"></div>
+          <div class="badge-content">
+            <span class="badge-icon">🤖</span>
+            <span class="badge-text">AI Rank 3 Holder</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ■ COMIC BOOK SECTION -->
+  <section id="comic" class="section" aria-label="Comic Book">
+    <div class="comic-header" style="text-align: center; margin-bottom: 40px;">
+      <div class="section-label reveal">Story Time</div>
+      <h2 class="section-title reveal reveal-delay-1">
+        My <em>Comic Book</em>
+      </h2>
+      <p class="reveal reveal-delay-2" style="font-size:0.9rem; color:var(--cream-dark); margin-top:10px;">Click the pages to flip and unveil the story</p>
+    </div>
+
+    <style>
+      .book-wrapper {
+        perspective: 2500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 0 100px;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden; /* Prevent horizontal scrollbars if it scales aggressively */
+      }
+      .comic-book {
+        position: relative;
+        width: 32vw;
+        max-width: 480px;
+        min-width: 250px;
+        aspect-ratio: 0.65;
+        transform-style: preserve-3d;
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        transform: rotateX(8deg) rotateY(15deg);
+      }
+      .comic-book:hover {
+        transform: rotateX(5deg) rotateY(5deg);
+      }
+      .comic-book.open-center {
+        transform: translateX(50%) rotateX(5deg) rotateY(0deg);
+      }
+      .comic-book.flipped-all {
+        transform: translateX(100%) rotateX(8deg) rotateY(-15deg);
+      }
+      @media(max-width: 768px) {
+        .comic-book { width: 45vw; min-width: auto; }
+      }
+      .comic-page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: left center;
+        transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transform-style: preserve-3d;
+        cursor: pointer;
+        border-radius: 2px 12px 12px 2px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      }
+      .comic-page.flipped {
+        transform: rotateY(-180deg);
+        border-radius: 12px 2px 2px 12px;
+        box-shadow: -15px 15px 35px rgba(0,0,0,0.6);
+      }
+      .comic-page-front, .comic-page-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        overflow: hidden;
+        background: #111;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .comic-page-front {
+        border-radius: 2px 12px 12px 2px;
+      }
+      .comic-page-front::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 5%, rgba(255,255,255,0.05) 10%, rgba(0,0,0,0) 15%, rgba(0,0,0,0.1) 100%);
+        pointer-events: none;
+      }
+      .comic-page-back {
+        transform: rotateY(180deg);
+        border-radius: 12px 2px 2px 12px;
+      }
+      .comic-page-back::after {
+        content: ''; position: absolute; inset: 0;
+        background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 5%, rgba(255,255,255,0.05) 10%, rgba(0,0,0,0) 15%, rgba(0,0,0,0.1) 100%);
+        pointer-events: none;
+      }
+      .comic-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Hardbound cover edges */
+      #page-cover .comic-page-front,
+      #page-back-cover .comic-page-back {
+        border-right: 3px solid #222;
+        box-shadow: inset -3px 0 10px rgba(0,0,0,0.8);
+      }
+    </style>
+
+    <div class="book-wrapper reveal reveal-delay-2">
+      <div class="comic-book" id="comic-book">
+        <!-- Front Cover -->
+        <div class="comic-page" id="page-cover">
+          <div class="comic-page-front"><img src="comic book/cover.png" class="comic-img"></div>
+          <div class="comic-page-back" style="background:#111;"><img src="comic book/arc 1.png" class="comic-img"></div>
+        </div>
+        <!-- Pages 1 to 5 mapping images 1-10 -->
+        <div class="comic-page" id="page-1">
+          <div class="comic-page-front"><img src="comic book/1.png" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/2.png" class="comic-img"></div>
+        </div>
+        <div class="comic-page" id="page-2">
+          <div class="comic-page-front"><img src="comic book/3.png" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/4.png" class="comic-img"></div>
+        </div>
+        <div class="comic-page" id="page-3">
+          <div class="comic-page-front"><img src="comic book/5.png" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/6.png" class="comic-img"></div>
+        </div>
+        <div class="comic-page" id="page-4">
+          <div class="comic-page-front"><img src="comic book/7.png" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/8.png" class="comic-img"></div>
+        </div>
+        <div class="comic-page" id="page-5">
+          <div class="comic-page-front"><img src="comic book/9.png" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/10.png" class="comic-img"></div>
+        </div>
+        <!-- Back Cover -->
+        <div class="comic-page" id="page-back-cover">
+          <div class="comic-page-front" style="background:#111;"><img src="comic book/luf.jpg" class="comic-img"></div>
+          <div class="comic-page-back"><img src="comic book/back cover.png" class="comic-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const book = document.getElementById('comic-book');
+      const pages = document.querySelectorAll('.comic-page');
+      let currentPage = 0;
+
+      // Initialize z-indexes
+      pages.forEach((page, index) => {
+        page.style.zIndex = pages.length - index;
+
+        page.addEventListener('click', function() {
+          if (!this.classList.contains('flipped')) {
+            // Forward Flip
+            this.classList.add('flipped');
+            currentPage++;
+            
+            setTimeout(() => {
+              this.style.zIndex = index + 1;
+            }, 600); // Wait half of animation (1.2s)
+          } else {
+            // Backward Flip
+            this.classList.remove('flipped');
+            this.style.zIndex = pages.length - index;
+            currentPage--;
+          }
+          
+          // Book position states to center visually
+          if (currentPage === 0) {
+            book.classList.remove('open-center', 'flipped-all');
+          } else if (currentPage === pages.length) {
+            book.classList.remove('open-center');
+            book.classList.add('flipped-all');
+          } else {
+            book.classList.add('open-center');
+            book.classList.remove('flipped-all');
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- ■ PROCESS -->
+  <section id="process" class="section" aria-label="Work process">
+    <div class="process-header">
+      <div>
+        <div class="section-label reveal">How I Work</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          The <em>process</em><br>behind great work
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-2" style="max-width:280px;font-size:0.85rem;color:var(--cream-dark);line-height:1.8;">
+        A structured, iterative approach ensures every project is delivered with precision and purpose.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <!-- Bounty Poster Styles for Process Cards -->
+      <style>
+        .process-grid { gap: 40px !important; justify-content: center; justify-items: center; }
+        .bounty-card {
+          padding: 0 !important;
+          background: transparent !important;
+          border: none !important;
+          backdrop-filter: none !important;
+          box-shadow: none !important;
+          overflow: visible !important;
+          display: flex !important;
+          flex-direction: column;
+          cursor: pointer !important;
+          max-width: 270px;
+          margin: 0 auto;
+          perspective: 1500px;
+          transform-style: preserve-3d;
+          position: relative;
+          z-index: 1;
+        }
+        .bounty-card::before { display: none !important; }
+        
+        .bounty-card-overlay {
+          position: fixed; inset: 0; background: rgba(10, 0, 0, 0.85);
+          backdrop-filter: blur(8px); z-index: 998;
+          opacity: 0; pointer-events: none; transition: opacity 0.5s;
+        }
+        .bounty-card-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .bounty-poster {
+          width: 100%;
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+          border: 6px solid #2a1610; /* Dark wood frame */
+          position: relative;
+          z-index: 1;
+          transform-style: preserve-3d;
+          transform: translateZ(10px);
+          transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .bounty-poster::after {
+          content: ''; position: absolute; inset: 0;
+          box-shadow: inset 0 0 25px rgba(0,0,0,0.9); pointer-events: none; z-index: 5;
+        }
+
+        .bounty-poster img {
+          width: 100%;
+          display: block; /* maintain aspect ratio securely */
+          filter: sepia(0.3) contrast(1.1) brightness(0.9);
+          transition: filter 0.4s;
+        }
+        .bounty-card:hover .bounty-poster img { filter: sepia(0.15) contrast(1.2) brightness(1.1); }
+        
+        .bounty-content {
+          position: absolute;
+          top: 16%;
+          left: 8.5%;
+          width: 83%;
+          height: 48%; /* Covers character area securely */
+          background: #110805; /* completely opaque filler */
+          border: 1px solid rgba(212, 169, 106, 0.2);
+          box-shadow: inset 0 0 20px rgba(0,0,0,1);
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          z-index: 2;
+          transform: translateZ(25px);
+          transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .bounty-card:hover .bounty-content {
+          background: #1c0a00;
+          box-shadow: inset 0 0 30px rgba(200, 50, 0, 0.6), 0 15px 25px rgba(0,0,0,0.5);
+          border-color: rgba(255, 120, 0, 0.5);
+          transform: translateZ(45px);
+        }
+        .bounty-content h3 {
+          font-family: var(--font-display) !important;
+          font-size: 1.15rem !important;
+          color: var(--gold) !important;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 6px !important;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+          transition: text-shadow 0.3s;
+        }
+        .bounty-card:hover .bounty-content h3 {
+          text-shadow: 0 0 8px rgba(255, 150, 0, 0.8), 0 0 15px rgba(255, 80, 0, 0.6);
+        }
+        .bounty-content p { 
+          color: var(--cream-dark) !important; 
+          font-size: 0.72rem !important; 
+          line-height: 1.5 !important;
+        }
+        .bounty-content .process-num {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 6.5rem !important;
+          color: rgba(212, 169, 106, 0.04) !important;
+          -webkit-text-stroke: 1px rgba(212, 169, 106, 0.1) !important;
+          z-index: -1;
+        }
+
+        .bounty-card:nth-child(even) { transform: rotate(1.5deg) translateY(20px); }
+        .bounty-card:nth-child(odd) { transform: rotate(-1.5deg); }
+      </style>
+
+      <article class="process-card bounty-card reveal reveal-delay-1">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (1).jpg" alt="Research">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">01</span>
+            <h3>Research</h3>
+            <p>Deep discovery sessions to understand your users, competitors, and business goals. Insights that inform every decision.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="process-card bounty-card reveal reveal-delay-2">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (2).jpg" alt="Wireframe">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">02</span>
+            <h3>Wireframe</h3>
+            <p>Rapid ideation and low-fidelity wireframes to validate information architecture before any visual design begins.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="process-card bounty-card reveal reveal-delay-3">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (3).jpg" alt="UI Design">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">03</span>
+            <h3>UI Design</h3>
+            <p>High-fidelity mockups with polished visual language, consistent design systems, and micro-interaction specifications.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="process-card bounty-card reveal reveal-delay-2">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (4).jpg" alt="Development">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">04</span>
+            <h3>Development</h3>
+            <p>Clean, semantic, and performant code. React, Next.js, or vanilla — always built for speed and accessibility.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="process-card bounty-card reveal reveal-delay-3">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (5).jpg" alt="Testing">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">05</span>
+            <h3>Testing</h3>
+            <p>Cross-browser, cross-device testing and usability reviews. Bugs caught before they reach your users.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="process-card bounty-card reveal reveal-delay-4">
+        <div class="bounty-poster">
+          <img src="bounty/bounty 1 (6).jpg" alt="Deployment">
+          <div class="bounty-content">
+            <span class="process-num" aria-hidden="true">06</span>
+            <h3>Deployment</h3>
+            <p>Smooth delivery with documentation, handoff assets, and ongoing support. Projects that launch — and last.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    
+    <!-- Overlay for click expansion -->
+    <div class="bounty-card-overlay" id="bounty-overlay"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const bountyCards = document.querySelectorAll('.bounty-card');
+        const overlay = document.getElementById('bounty-overlay');
+        
+        bountyCards.forEach(card => {
+          let bounds;
+          
+          card.addEventListener('mouseenter', () => {
+             if(!card.classList.contains('expanded')) {
+                 bounds = card.getBoundingClientRect();
+                 card.style.transition = 'none'; // exact tracking
+             }
+          });
+          
+          card.addEventListener('mousemove', (e) => {
+             if(card.classList.contains('expanded')) return;
+             
+             // 3D Tilt calculation
+             const mouseX = e.clientX - bounds.left;
+             const mouseY = e.clientY - bounds.top;
+             
+             const xPct = mouseX / bounds.width - 0.5;
+             const yPct = mouseY / bounds.height - 0.5;
+             
+             const rotateX = yPct * -30; // max tilt variation
+             const rotateY = xPct * 30;
+             
+             card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+             
+             // Glow reaction dynamically follows mouse
+             card.style.setProperty('--m-x', `${(mouseX / bounds.width) * 100}%`);
+             card.style.setProperty('--m-y', `${(mouseY / bounds.height) * 100}%`);
+          });
+          
+          card.addEventListener('mouseleave', () => {
+             if(card.classList.contains('expanded')) return;
+             
+             card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+             card.style.transform = ''; // reset to CSS defaults
+             card.style.setProperty('--m-x', '50%');
+             card.style.setProperty('--m-y', '50%');
+          });
+          
+          // Dramatic Release Expansion
+          card.addEventListener('click', () => {
+             const isExpanded = card.classList.contains('expanded');
+             
+             if(!isExpanded) {
+                 bountyCards.forEach(c => { 
+                     c.classList.remove('expanded'); 
+                     c.style.transform = ''; 
+                     c.style.zIndex = '1'; 
+                 });
+                 
+                 const rect = card.getBoundingClientRect();
+                 const centerX = window.innerWidth / 2;
+                 const centerY = window.innerHeight / 2;
+                 const moveX = centerX - (rect.left + rect.width / 2);
+                 const moveY = centerY - (rect.top + rect.height / 2);
+                 
+                 card.classList.add('expanded');
+                 overlay.classList.add('active');
+                 
+                 card.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+                 card.style.zIndex = '1000';
+                 // Project it smoothly to the center of viewport scaling up
+                 card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.6) rotateX(0deg) rotateY(0deg)`;
+                 document.body.style.overflow = 'hidden'; 
+             } else {
+                 card.classList.remove('expanded');
+                 overlay.classList.remove('active');
+                 card.style.transform = ''; 
+                 document.body.style.overflow = '';
+                 setTimeout(() => { if(!card.classList.contains('expanded')) card.style.zIndex = '1'; }, 600);
+             }
+          });
+        });
+        
+        // Remove expansion via background click
+        overlay.addEventListener('click', () => {
+           bountyCards.forEach(c => {
+               c.classList.remove('expanded');
+               c.style.transform = '';
+               setTimeout(() => { if(!c.classList.contains('expanded')) c.style.zIndex = '1'; }, 600);
+           });
+           overlay.classList.remove('active');
+           document.body.style.overflow = '';
+        });
+      });
+    </script>
+
+  <!-- ■ DIGITAL GRAND LINE - MASTERY SECTION -->
+  <section id="mastery" class="section mastery-section">
+    <div class="container">
+      <div class="mastery-header">
+        <div>
+          <div class="section-label reveal">Skill Fleet</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Front End <em>Technologies</em> &<br>
+            UI/UX <em>Tools</em> And <em>AI</em> i Use
+          </h2>
+        </div>
+      </div>
+
+      <!-- Map Display (Fully visible, contain) -->
+      <div class="mastery-map-container reveal reveal-delay-2">
+        <img src="images/grand line map.jpg" alt="Grand Line Map" class="mastery-map-img">
+        
+        <!-- Interactive Hotspots (Islands) -->
+        <div class="map-hotspot island-frontend env-wind-slow" 
+             style="top: 25%; left: 30%;" 
+             data-island="Frontend Mastery" 
+             data-level="95" 
+             data-built="Aston Martin, Honda Motor, & Tandoor House" 
+             data-content="HTML5 / CSS3 / JavaScript Expert">
+          <div class="hotspot-trigger"></div>
+          <div class="hotspot-glow"></div>
+        </div>
+        
+        <div class="map-hotspot island-react" 
+             style="top: 45%; left: 42%;" 
+             data-island="React Ecosystem" 
+             data-level="80" 
+             data-built="Digital Identity Wallet & E-commerce UI" 
+             data-content="Next.js, State Management, Framer Motion">
+          <div class="hotspot-trigger"></div>
+          <div class="hotspot-glow"></div>
+        </div>
+
+        <div class="map-hotspot island-design" 
+             style="top: 25%; left: 70%;" 
+             data-island="UI/UX Core" 
+             data-level="90" 
+             data-built="resQ Ambulance App & Fairy Tale UI" 
+             data-content="Figma, Adobe XD, High-Fidelity Prototyping">
+          <div class="hotspot-trigger"></div>
+          <div class="hotspot-glow"></div>
+        </div>
+
+        <div class="map-hotspot island-ai" 
+             style="top: 75%; left: 60%;" 
+             data-island="AI Engine" 
+             data-level="85" 
+             data-built="Generative Art & Content Pipelines" 
+             data-content="Prompt Engineering, Image Gen, LLM Integration">
+          <div class="hotspot-trigger"></div>
+          <div class="hotspot-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .mastery-section {
+      background: var(--bg-deep);
+    }
+    .mastery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+    .mastery-map-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .mastery-map-img {
+      max-width: 1200px;
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Guarantee full visibility */
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--glass-border);
+    }
+    @media (max-width: 768px) {
+      .mastery-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+  </style>
+
+
+
+
+
+  <!-- ■ PROJECTS -->
+  <section id="projects" class="section" aria-label="Featured projects">
+    <div class="container container-wide">
+      <div class="projects-header">
+      <div>
+        <div class="section-label reveal">Selected Work</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          Featured <em>projects</em>
+        </h2>
+      </div>
+      <a href="#" class="view-all-btn reveal reveal-delay-2">
+        View All
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Card 1 -->
+      <article class="project-card reveal reveal-delay-1" data-category="web" data-link="https://startling-arithmetic-6e5b92.netlify.app">
+        <div class="project-preview">
+          <img src="images/aston martin.png" alt="Aston Martin Website">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Redesign</span>
+            <span class="project-tag">UI</span>
+            <span class="project-tag">Development</span>
+          </div>
+          <h3 class="project-title"> Aston Martin Website Design & Development</h3>
+          <p class="project-desc">This project is a luxury automotive web experience inspired by Aston Martin, designed to reflect the brand’s core values of performance, elegance, and precision engineering. The goal was to create a visually immersive and refined digital platform that mirrors the sophistication and exclusivity associated with high-end automotive brands.<br><br>Built using HTML, CSS, and JavaScript, the website focuses on delivering a seamless blend of cinematic visuals, smooth interactions, and premium UI design.</p>
+        </div>
+      </article>
+
+      <!-- Card 2 (PROJECT STYLE) -->
+      <article class="project-card reveal reveal-delay-2" data-category="app" data-link="https://kaisen2922.github.io/resQ-Ambulence/">
+        <div class="project-preview">
+          <img src="images/Ambulance Booking App.jpg" alt="Ambulance Booking App">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI/UX Project</span>
+            <span class="project-tag">Healthcare</span>
+          </div>
+          <h3 class="project-title">resQ — Emergency Ambulance Interface</h3>
+          <p class="project-desc">
+            Optimizing emergency dispatch through a single-tap booking interface with real-time GPS tracking and pre-filled patient vitals, reducing response times by 15%.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="project-card reveal reveal-delay-3" data-category="app" data-gallery="project/Children’s Fairy Tale Story(1).jpeg,project/Children’s Fairy Tale Story(2).jpeg,project/Children’s Fairy Tale Story(3).jpeg,project/Children’s Fairy Tale Story(4).jpeg,project/Children’s Fairy Tale Story(5).jpeg">
+        <div class="project-preview">
+          <img src="images/Children’s Fairy Tale Story & Audiobook Mobile App UI.jpg" alt="StoryNest App">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Gamification</span>
+          </div>
+          <h3 class="project-title">StoryNest — Storytelling Interface</h3>
+          <p class="project-desc"> StoryNest is a modern storytelling platform designed to provide a seamless and distraction-free reading and listening experience. The interface focuses on clean layout, intuitive navigation, and content-first design principles.
+
+ The platform includes features like personalized recommendations, reading progress tracking, offline access, and customizable reader settings. Special attention was given to typography, spacing, and visual hierarchy to ensure an immersive and user-friendly experience across all screens.
+</p>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="project-card reveal reveal-delay-2" data-gallery="project/A gaming peripherals company (1).jpeg,project/A gaming peripherals company (2).jpeg,project/A gaming peripherals company (3).jpeg">
+        <div class="project-preview">
+          <img src="images/gaming peripherals company.png" alt="GAMEWARE Website">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">E-commerce</span>
+          </div>
+          <h3 class="project-title">GAMEWARE — Premium Gaming Interface</h3>
+          <p class="project-desc">I designed GAMEWARE a high-performance gaming peripherals website with a strong focus on clarity, speed, and visual impact. The goal was to create a UI that feels as responsive and premium as the hardware it represents.<br><br>The project covers the full shopping flow — from a clean, attention-grabbing homepage to a structured product listing with filters, and a detailed product page built for quick decision-making. Every section is designed to guide the user without overwhelming them. I paid close attention to spacing, typography, and contrast, using a dark theme to keep the interface sharp and easy to navigate.</p>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="project-card reveal reveal-delay-3" data-link="https://preeminent-custard-d345a7.netlify.app">
+        <div class="project-preview">
+          <img src="images/colour palette greater Website.png" alt="Color Palette Website">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI</span>
+            <span class="project-tag">Research</span>
+          </div>
+          <h3 class="project-title">HueCraft — Color Palette Generator</h3>
+          <p class="project-desc">This project is a modern color palette generator web application designed to help designers and developers quickly create visually balanced and aesthetically pleasing color schemes. The goal of the project was to build a fast, intuitive, and interactive tool that simplifies the process of selecting and experimenting with colors.<br><br>Built using HTML, CSS, and JavaScript, the application focuses on delivering a smooth user experience with real-time updates and a clean, minimal interface that keeps the user’s attention on the colors themselves.</p>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="project-card reveal reveal-delay-4" data-link="https://kaisen2922.github.io/Honda-Motor-Web/">
+        <div class="project-preview">
+          <img src="images/honda Motor Website.png" alt="Honda Motor Website">
+          <div class="project-overlay">
+            <span class="project-cta">
+              VIEW PROJECT
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI</span>
+            <span class="project-tag">Development</span>
+          </div>
+          <h3 class="project-title">Honda Motor Website</h3>
+          <p class="project-desc">This project is a fully responsive Honda-inspired motorcycle web experience that blends modern UI design with interactive functionality. It features a dynamic hero section, categorized bike listings, equipment store, dealership locator, and a custom rider dashboard with performance stats and activity tracking. The design follows a bold dark aesthetic with red accents, creating a premium and high-energy feel.<br><br>The platform also includes an interactive shopping cart system, hover-based microinteractions, and structured navigation to enhance usability. Built entirely with HTML, CSS, and JavaScript, the project demonstrates strong frontend development skills, UI/UX understanding, and attention to detail in creating real-world product interfaces. Similar projects often include responsive layouts, navigation systems, and product display components as core features in modern web design.</p>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="project-card reveal reveal-delay-2" data-category="app" data-gallery="project/A digital identity and skill verification Ap (2).jpg,project/A digital identity and skill verification Ap (3).jpg,project/A digital identity and skill verification Ap (4).jpg,project/A digital identity and skill verification Ap (5).jpg,project/A digital identity and skill verification Ap (6).jpg,project/A digital identity and skill verification Ap (7).jpg,project/A digital identity and skill verification Ap (8).jpg,project/A digital identity and skill verification Ap (9).jpg">
+        <div class="project-preview">
+          <img src="images/digital identity and skill verification App.jpg" alt="SAHAYA Digital Identity">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Security</span>
+            <span class="project-tag">Research</span>
+          </div>
+          <h3 class="project-title">SAHAYA — Digital Identity Wallet</h3>
+          <p class="project-desc">I designed this app as a digital identity layer for the real world — a place where users can store, verify, and instantly share their skills and credentials with confidence. The idea is simple: instead of carrying physical documents or unreliable proof, users have a secure, verified profile that can be accessed and shared in seconds using a QR code.<br><br>Whether it’s job verification, skill validation, or document storage, everything lives in one place. The product focuses heavily on trust and usability — with verified badges, encrypted storage, and a private locker system backed by PIN and biometric security.</p>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="project-card reveal reveal-delay-3">
+        <div class="project-preview">
+          <img src="images/furniture store website UI.jpg" alt="Furniture Store Website UI">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">UI</span>
+            <span class="project-tag">Web Design</span>
+            <span class="project-tag">UX</span>
+          </div>
+          <h3 class="project-title">Furniture Store website</h3>
+          <p class="project-desc">A premium e-commerce experience for a luxury furniture brand, focusing on minimal design and high-speed UX.</p>
+        </div>
+      </article>
+
+      <!-- Card 9 -->
+      <article class="project-card reveal reveal-delay-4" data-link="https://kaisen2922.github.io/tandoor-house-restrent/">
+        <div class="project-preview">
+          <img src="images/Tandoor house.png" alt="Tandoor House Restaurant">
+          <div class="project-overlay">
+            <span class="project-cta">
+              View Project
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            <span class="project-tag">Front-End</span>
+            <span class="project-tag">Web Design</span>
+          </div>
+          <h3 class="project-title">Tandoor House restaurant</h3>
+          <p class="project-desc">Tandoor House is a modern, visually immersive restaurant website designed to recreate the experience of fine dining in a digital environment. The project focuses on combining strong visual storytelling with interactive UI elements to deliver a premium, user-friendly web experience that reflects the warmth, richness, and cultural depth of Indian cuisine.<br><br>Built using HTML, CSS, and JavaScript, the website emphasizes performance, smooth interaction, and a cohesive design system tailored to a high-end restaurant brand.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ■ OTHER WORKS -->
+  <section id="other-works" class="section" aria-label="Other works">
+    <div class="section-label reveal">Quick Deliverables</div>
+    <h2 class="section-title reveal reveal-delay-1">Other <em>works</em></h2>
+
+    <div class="other-works-scroll mt-lg" role="list">
+
+      <div class="work-mini-card reveal reveal-delay-1" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Brand Pitch Deck.jpg" alt="Brand Pitch Deck" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Presentation</div>
+          <div class="work-mini-title">Brand Pitch Deck</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+      <div class="work-mini-card reveal reveal-delay-2" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Logo & Identity.png" alt="Logo & Identity" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Branding</div>
+          <div class="work-mini-title">Logo & Identity</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+      <div class="work-mini-card reveal reveal-delay-3" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Poster & Banner.jpg" alt="Poster & Banner" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Print</div>
+          <div class="work-mini-title">Poster & Banner</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+      <div class="work-mini-card reveal reveal-delay-2" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Single Page Site.png" alt="Single Page Site" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Landing Page</div>
+          <div class="work-mini-title">Single Page Site</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+      <div class="work-mini-card reveal reveal-delay-3" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Email Template.jpg" alt="Email Template" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Marketing</div>
+          <div class="work-mini-title">Email Template</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+      <div class="work-mini-card reveal reveal-delay-4" role="listitem">
+        <div class="work-mini-preview">
+          <img src="images/Content Kit.jpg" alt="Content Kit" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="work-mini-info">
+          <div class="work-mini-type">Social Media</div>
+          <div class="work-mini-title">Content Kit</div>
+          <div class="work-mini-duration"></div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+
+  <!-- ■ PLAY MODE ENTRY BUTTON -->
+  <section id="play-mode-entry" class="section play-mode-entry" aria-label="Play mode entry">
+    <div class="container" style="text-align: center;">
+      <div class="play-entry-card reveal">
+        <div class="play-glow"></div>
+        <div class="section-label">Immersive Experience</div>
+        <h2 class="section-title">Explore the <em>Gaming World</em></h2>
+        <p class="play-desc" style="max-width: 500px; margin: 20px auto; opacity: 0.6;">
+           Set sail on a side-scrolling 2D journey. Unlock skills, explore projects, and experience the portfolio in a whole new dimension.
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+          <button id="enter-play-mode" class="btn-play magnetic-btn" onclick="window.location.href='game/index.html'">
+            <span>Enter Play Mode</span>
+            <div class="btn-shine"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ■ COLLABORATION -->
+  <section id="collaboration" class="section" aria-label="Collaboration">
+    <div class="collab-inner">
+
+      <!-- Left -->
+      <div>
+        <h2 class="collab-heading reveal">
+          Сollabo<br><em>ration</em>
+        </h2>
+
+        <div class="collab-cta-card reveal reveal-delay-1">
+          <p>Want a unique site from scratch or a redesign of an existing project?</p>
+          <p>Write to me and I'll create a unique digital experience for your business.</p>
+        </div>
+
+        <!-- QR row -->
+        <!-- UNIFIED SMART QR SECTION -->
+        <div class="qr-row reveal reveal-delay-2">
+          
+          <a href="https://instagram.com/_kaisen01" target="_blank" class="qr-item" aria-label="Instagram Profile">
+            <div class="qr-box">
+              <img src="images/insta qr.jpeg" alt="Instagram QR Code">
+              <div class="qr-scan-line"></div>
+              <div class="qr-platform-badge">Instagram</div>
+            </div>
+            <span class="qr-label">_kaisen01</span>
+          </a>
+
+          <a href="https://linkedin.com/in/joydip-acharjee-44044a372/" target="_blank" class="qr-item" aria-label="LinkedIn Profile">
+            <div class="qr-box">
+              <img src="images/linkedin qr.png" alt="LinkedIn QR Code">
+              <div class="qr-scan-line"></div>
+              <div class="qr-platform-badge">LinkedIn</div>
+            </div>
+            <span class="qr-label">Joydip Acharjee</span>
+          </a>
+
+          <a href="https://github.com/joydip-acharjee" target="_blank" class="qr-item" aria-label="GitHub Profile">
+            <div class="qr-box">
+              <img src="images/Git Qr.png" alt="GitHub QR Code">
+              <div class="qr-scan-line"></div>
+              <div class="qr-platform-badge">GitHub</div>
+            </div>
+            <span class="qr-label">kaisen2922</span>
+          </a>
+
+        </div>
+
+        <!-- Contact info -->
+        <div style="margin-top:32px;display:flex;gap:40px;flex-wrap:wrap;" class="reveal reveal-delay-3">
+          <div>
+            <div class="section-label" style="margin-bottom:6px;">insta:</div>
+            <a href="https://instagram.com/_kaisen01" target="_blank" style="font-size:0.8rem;color:var(--cream-dark);">_kaisen01</a>
+          </div>
+          <div>
+            <div class="section-label" style="margin-bottom:6px;">linkedin:</div>
+            <a href="https://linkedin.com/in/joydip-acharjee-44044a372/" target="_blank" style="font-size:0.8rem;color:var(--cream-dark);">joydip Acharjee</a>
+          </div>
+          <div>
+            <div class="section-label" style="margin-bottom:6px;">github:</div>
+            <a href="https://github.com/joydip-acharjee" style="font-size:0.8rem;color:var(--cream-dark);">kaisen2922</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: portrait -->
+      <div class="collab-right reveal reveal-delay-2">
+        <div class="collab-portrait js-profile-trigger" style="cursor: pointer;">
+          <img src="images/proprait.jpeg" alt="Joydip Portrait" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg) var(--radius-lg) 50% 50%; opacity:0.8; filter:contrast(1.1) saturate(1.1);">
+        </div>
+        <div class="collab-name-display">JOYDIP</div>
+        
+        <!-- JOIN CREW BUTTON (Smaller) -->
+        <button id="join-crew-init-btn" style="margin-top: 20px; font-family: var(--font-display); font-size: 0.9rem; padding: 12px 24px; background: linear-gradient(135deg, var(--red-primary), var(--bg-rich)); color: var(--cream); text-transform: uppercase; letter-spacing: 1px; border: 1px solid rgba(160,0,0,0.5); cursor: pointer; box-shadow: 0 5px 15px rgba(122,0,0,0.4); border-radius: var(--radius-md); transition: var(--transition);">
+          JOIN CREW 🏴‍☠️
+        </button>
+      </div>
+
+      <!-- Profile Pop-out Modal -->
+      <div id="profile-modal" class="modal-overlay">
+        <div class="modal-glass-card">
+          <button class="modal-close">&times;</button>
+          <div class="modal-content">
+            <div class="modal-avatar">
+              <img src="images/proprait.jpeg" alt="Joydip">
+            </div>
+            <h3 class="modal-name">Joydip Acharjee</h3>
+            <p class="modal-tagline">Designer & Developer</p>
+            <div class="modal-bio">
+              <p>Passionate about creating immersive digital experiences through clean code and bold design. Specializing in UI/UX and Web Development.</p>
+            </div>
+            <div class="modal-socials">
+              <a href="https://instagram.com/_kaisen01" target="_blank" class="social-btn">Instagram</a>
+              <a href="https://linkedin.com/in/joydip-acharjee-44044a372/" target="_blank" class="social-btn">LinkedIn</a>
+              <a href="https://github.com/kaisen2922" target="_blank" class="social-btn">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Pop-out Modal -->
+      <div id="project-modal" class="modal-overlay">
+        <div class="modal-glass-card" style="max-width: 800px; padding: 40px; width: 90%;">
+          <button class="modal-close" id="project-modal-close">&times;</button>
+          <div class="modal-content" style="text-align: left;">
+            <div id="pm-gallery" class="project-modal-gallery">
+               <div id="pm-gallery-track" class="gallery-track"></div>
+               <div id="pm-gallery-nav" class="gallery-nav"></div>
+               <button id="pm-prev" class="gallery-btn prev">&larr;</button>
+               <button id="pm-next" class="gallery-btn next">&rarr;</button>
+            </div>
+            <div id="pm-tags" class="project-tags" style="margin-bottom: 16px;"></div>
+            <h3 id="pm-title" class="project-title" style="font-size: 2rem; margin-bottom: 16px;">Title</h3>
+            <p id="pm-desc" class="project-desc" style="font-size: 1rem; color: var(--cream-dark); line-height: 1.8;"></p>
+            <div style="margin-top: 32px;">
+              <a id="pm-link" href="#" target="_blank" class="btn btn-primary" style="display: none;">
+                Visit Live Project
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="margin-left: 8px;">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ■ CINEMATIC CREW CTA -->
+  <div id="cinema-cta" style="position: fixed; inset: 0; background: radial-gradient(circle at center, var(--bg-mid) 0%, var(--bg-deep) 100%); z-index: 10000; display: none; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--cream); padding: 20px; overflow: hidden; font-family: var(--font-display);">
+
+    <!-- Background Elements -->
+    <div style="position: absolute; inset: 0; background: url('images/noise.png') repeat; opacity: 0.05; pointer-events: none; mix-blend-mode: overlay;"></div>
+    <div id="cinema-fog" style="position: absolute; inset: 0; background: radial-gradient(ellipse at bottom, rgba(160,0,0,0.15) 0%, transparent 60%); opacity: 0; pointer-events: none; transition: opacity 3s;"></div>
+
+    <!-- Container for dynamic text -->
+    <div id="cinema-text-container" style="max-width: 900px; position: relative; z-index: 2;">
+      <h2 id="cinema-line" style="font-size: 2.8rem; letter-spacing: 2px; color: var(--gold); opacity: 0; transform: scale(0.95); transition: all 1.5s ease-out; text-shadow: 0 0 20px rgba(212,169,106,0.3); font-weight: 300;">
+        You've come a long way...
+      </h2>
+    </div>
+
+    <!-- Buttons Container (Hidden Initially) -->
+    <div id="cinema-choices" style="display: none; gap: 30px; margin-top: 50px; position: relative; z-index: 3;">
+      <button id="btn-shore" style="background: transparent; border: 1px solid rgba(245,230,211,0.15); color: rgba(245,230,211,0.4); padding: 15px 30px; font-size: 1.2rem; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.3s; border-radius: var(--radius-sm);">
+        ❌ Stay Ashore
+      </button>
+      <button id="btn-sail" style="background: transparent; border: 2px solid var(--red-accent); color: var(--red-accent); padding: 15px 40px; font-size: 1.5rem; font-weight: bold; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 3px; cursor: pointer; box-shadow: 0 0 20px rgba(160,0,0,0.4), inset 0 0 10px rgba(160,0,0,0.2); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: var(--radius-sm); text-shadow: 0 0 10px rgba(160,0,0,0.5); position: relative; overflow: hidden;">
+        ⚡ Set Sail
+      </button>
+    </div>
+
+    <!-- Glitch / Flash Overlay -->
+    <div id="cinema-flash" style="position: absolute; inset: 0; background: var(--cream); opacity: 0; pointer-events: none; mix-blend-mode: overlay; z-index: 10;"></div>
+
+    <!-- Registration Log (Hidden Initially) -->
+    <div id="cinema-log" style="display: none; background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); padding: 50px; border-radius: var(--radius-lg); width: 100%; max-width: 600px; text-align: left; position: relative; z-index: 4; box-shadow: 0 30px 60px rgba(0,0,0,0.8); flex-direction: column; gap: 24px;">
+      <h2 style="color: var(--red-accent); text-transform: uppercase; letter-spacing: 2px; font-size: 2rem; margin-bottom: 20px; text-align: center; text-shadow: 0 0 15px rgba(160,0,0,0.5);">🏴‍☠️ Crew Registration Log</h2>
+      
+      <div class="form-group">
+        <label style="color: var(--gold); font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; display: block;">What do they call you?</label>
+        <input type="text" style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(212,169,106,0.3); color: var(--cream); font-size: 1.2rem; padding: 10px 0; outline: none; font-family: var(--font-alt); transition: border-color 0.3s;">
+      </div>
+      
+      <div class="form-group">
+        <label style="color: var(--gold); font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; display: block;">Your Den Den Mushi (Email)</label>
+        <input type="email" style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(212,169,106,0.3); color: var(--cream); font-size: 1.2rem; padding: 10px 0; outline: none; font-family: var(--font-alt); transition: border-color 0.3s;">
+      </div>
+      
+      <div class="form-group">
+        <label style="color: var(--gold); font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; display: block;">Why should you join this crew?</label>
+        <textarea style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(212,169,106,0.3); color: var(--cream); font-size: 1.1rem; padding: 15px; outline: none; font-family: var(--font-alt); min-height: 120px; resize: none; border-radius: var(--radius-sm); margin-top: 5px; transition: border-color 0.3s;"></textarea>
+      </div>
+
+      <button id="btn-submit-crew" style="background: linear-gradient(135deg, var(--red-primary), var(--bg-rich)); color: var(--cream); border: 1px solid rgba(160,0,0,0.5); padding: 18px; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-display); cursor: pointer; border-radius: var(--radius-sm); margin-top: 10px; font-weight: bold; transition: var(--transition); box-shadow: 0 10px 20px rgba(122,0,0,0.3);">
+        Submit Logbook
+      </button>
+    </div>
+
+  </div>
+
+  <style>
+    /* Cinematic Overlay Styles */
+    #btn-sail:hover {
+      background: rgba(160,0,0,0.15);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 0 35px rgba(160,0,0,0.6), inset 0 0 20px rgba(160,0,0,0.4);
+    }
+    #btn-shore:hover {
+      background: rgba(245,230,211,0.05);
+      color: rgba(245,230,211,0.8);
+      transform: translateY(2px);
+    }
+    #join-crew-init-btn:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(160,0,0,0.5);
+      border-color: var(--red-accent);
+    }
+    #btn-submit-crew:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(160,0,0,0.5);
+      background: var(--red-accent);
+    }
+    .cinema-glitch {
+      animation: c-glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+    }
+    @keyframes c-glitch {
+      0% { transform: translate(0) }
+      20% { transform: translate(-8px, 8px) }
+      40% { transform: translate(-8px, -8px) }
+      60% { transform: translate(8px, 8px) }
+      80% { transform: translate(8px, -8px) }
+      100% { transform: translate(0) }
+    }
+  </style>
+
+  <script>
+    // Cinematic Interaction logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const initBtn = document.getElementById('join-crew-init-btn');
+      const cinemaCta = document.getElementById('cinema-cta');
+      const cinemaLine = document.getElementById('cinema-line');
+      const cinemaChoices = document.getElementById('cinema-choices');
+      const fog = document.getElementById('cinema-fog');
+      const btnShore = document.getElementById('btn-shore');
+      const btnSail = document.getElementById('btn-sail');
+      const cinemaFlash = document.getElementById('cinema-flash');
+      const cinemaLog = document.getElementById('cinema-log');
+      const btnSubmit = document.getElementById('btn-submit-crew');
+
+      const lines = [
+        "You've come a long way...",
+        "Across broken systems... and endless interfaces...",
+        "Most would've stopped by now.",
+        "But you're still here.",
+        "If you're not here to be average...",
+        "🏴‍☠️ SO... WHAT WILL YOU CHOOSE?",
+        "ARE YOU READY TO JOIN THE CREW?"
+      ];
+
+      const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+      async function showLine(text, duration = 3000, isFinal = false) {
+        cinemaLine.style.opacity = '0';
+        cinemaLine.style.transform = 'scale(0.95)';
+        await sleep(900); // fade out duration
+
+        cinemaLine.innerHTML = text;
+        
+        // Reset styles
+        cinemaLine.style.color = "var(--gold)";
+        cinemaLine.style.fontWeight = "300";
+        cinemaLine.style.fontSize = "2.8rem";
+        cinemaLine.style.textShadow = "0 0 20px rgba(212,169,106,0.3)";
+
+        if (text.includes("WHAT WILL")) {
+          cinemaLine.style.color = "var(--red-accent)";
+          cinemaLine.style.fontWeight = "bold";
+          cinemaLine.style.fontSize = "3.8rem";
+          cinemaLine.style.textShadow = "0 0 35px rgba(160,0,0,0.7)";
+        } else if (text.includes("JOIN THE CREW")) {
+          cinemaLine.style.fontSize = "4.2rem";
+          cinemaLine.style.color = "var(--cream)";
+        }
+
+        cinemaLine.style.opacity = '1';
+
+        if (!isFinal) {
+          // Continuous slow zoom in
+          cinemaLine.style.transition = "transform 6s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease-out";
+          cinemaLine.style.transform = 'scale(1.05)';
+        } else {
+          cinemaLine.style.transform = 'scale(1)';
+        }
+
+        await sleep(duration);
+      }
+
+      if (initBtn && cinemaCta) {
+        initBtn.addEventListener('click', async () => {
+          cinemaCta.style.display = 'flex';
+          cinemaCta.style.opacity = '0';
+          
+          await sleep(50);
+          cinemaCta.style.transition = "opacity 2.5s ease";
+          cinemaCta.style.opacity = '1';
+          document.body.style.overflow = 'hidden';
+
+          await sleep(2000); // Dramatic initial pause
+
+          for (let i = 0; i < lines.length; i++) {
+            const duration = lines[i].includes("WHAT WILL") || lines[i].includes("JOIN") ? 2500 : 3500;
+            const isFinal = (i === lines.length - 1);
+            await showLine(lines[i], duration, isFinal);
+          }
+
+          // Show choices
+          await sleep(600);
+          cinemaChoices.style.display = "flex";
+          cinemaChoices.style.opacity = "0";
+          fog.style.transition = "opacity 4s ease";
+          fog.style.opacity = "1";
+          
+          await sleep(50);
+          cinemaChoices.style.transition = "opacity 1.5s ease";
+          cinemaChoices.style.opacity = "1";
+        });
+      }
+
+      // Action: Stay Ashore
+      if(btnShore) {
+        btnShore.addEventListener('click', async () => {
+          cinemaChoices.style.transition = "opacity 0.5s";
+          cinemaChoices.style.opacity = "0";
+          await sleep(500);
+          cinemaChoices.style.display = "none";
+          
+          await showLine("Then this is where your journey ends.", 4000, true);
+          
+          cinemaCta.style.transition = "opacity 2.5s ease-out";
+          cinemaCta.style.opacity = '0';
+          await sleep(2500);
+          cinemaCta.style.display = 'none';
+          document.body.style.overflow = '';
+          cinemaLine.innerHTML = '';
+        });
+      }
+
+      // Action: Set Sail
+      if(btnSail) {
+        btnSail.addEventListener('click', async () => {
+          // Power moment shake & glitch
+          btnSail.classList.add('cinema-glitch');
+          document.getElementById('cinema-text-container').classList.add('cinema-glitch');
+          
+          await sleep(600);
+          
+          // Huge Flash
+          cinemaFlash.style.transition = "opacity 0.1s";
+          cinemaFlash.style.opacity = '1';
+          
+          await sleep(100);
+          btnSail.classList.remove('cinema-glitch');
+          document.getElementById('cinema-text-container').classList.remove('cinema-glitch');
+          cinemaLine.style.display = 'none';
+          cinemaChoices.style.display = 'none';
+          
+          // Show form
+          cinemaLog.style.display = 'flex';
+          cinemaLog.style.opacity = '0';
+          
+          // Flash fades out revealing form
+          cinemaFlash.style.transition = "opacity 1.5s ease-out";
+          cinemaFlash.style.opacity = '0';
+          
+          await sleep(100);
+          cinemaLog.style.transition = "opacity 1s ease";
+          cinemaLog.style.opacity = '1';
+          
+          fog.style.background = "radial-gradient(ellipse at center, rgba(212,169,106,0.15) 0%, transparent 70%)";
+        });
+      }
+      
+      // Submit Action
+      if(btnSubmit) {
+        btnSubmit.addEventListener('click', async () => {
+          cinemaLog.style.transition = "opacity 0.5s ease-out";
+          cinemaLog.style.opacity = '0';
+          await sleep(500);
+          cinemaLog.style.display = 'none';
+          
+          cinemaLine.style.display = 'block';
+          cinemaLine.style.color = 'var(--cream)';
+          cinemaLine.style.fontSize = '3.5rem';
+          cinemaLine.style.textShadow = '0 0 30px rgba(245,230,211,0.6)';
+          
+          // Simulate Sunrise
+          cinemaCta.style.transition = "background 3s ease";
+          cinemaCta.style.background = "radial-gradient(circle at center, rgba(160,0,0,0.15) 0%, var(--bg-deep) 100%)";
+          
+          await showLine("Welcome aboard.", 3500, true);
+          await showLine("⚡ Your journey begins now.", 4500, true);
+          
+          cinemaCta.style.transition = "opacity 3s ease-out";
+          cinemaCta.style.opacity = '0';
+          await sleep(3000);
+          cinemaCta.style.display = 'none';
+          document.body.style.overflow = '';
+          
+          // Optional: clear input fields
+          const inputs = cinemaLog.querySelectorAll('input, textarea');
+          inputs.forEach(i => i.value = '');
+        });
+      }
+    });
+  </script>
+
+
+  <!-- ■ FOOTER BAR -->
+  <footer class="footer-bar" role="contentinfo">
+    <p class="footer-copy">
+      © <span id="year"></span> Joydip Acharjee. Designed &amp; Built with ♥
+    </p>
+    <ul class="footer-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#collaboration">Contact</a></li>
+    </ul>
+  </footer>
+
+
+  <!-- ■ LUFFY CHATBOT -->
+  <div id="luffy-chatbot" class="luffy-chatbot">
+    <div class="luffy-speech-bubble">
+      <span id="luffy-greet-text">Yo! I'm Luffy! Welcome!</span>
+    </div>
+    <div class="luffy-avatar">
+      <img src="chatbot/luffy.png" alt="Luffy">
+    </div>
+  </div>
+
+  <style>
+    .luffy-chatbot {
+      position: fixed;
+      bottom: -20px; /* Pushed tightly into the corner */
+      right: -30px;  /* Pushed tightly into the corner */
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 15px;
+      pointer-events: none; /* so it doesn't block clicks */
+      transform: translateY(150px) scale(0.5);
+      opacity: 0;
+    }
+    .luffy-speech-bubble {
+      background: linear-gradient(135deg, var(--red-primary), var(--bg-deep));
+      color: var(--cream);
+      padding: 22px 32px; /* Increased Padding for bigger text */
+      border-radius: 20px 20px 0 20px;
+      font-family: var(--font-display, sans-serif);
+      font-size: 1.4rem; /* Significantly Larger Text */
+      max-width: 360px; /* Increased width to accommodate larger text */
+      text-align: center;
+      line-height: 1.5;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      border: 2px solid var(--gold);
+      pointer-events: auto; /* can be hovered */
+      transform-origin: bottom right;
+      animation: floatSpeech 4s ease-in-out infinite;
+      margin-right: 30px; /* offset the push into corner */
+    }
+    @keyframes floatSpeech {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .luffy-avatar {
+      height: clamp(450px, 45vh, 650px); /* Massive Size Increase */
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+    .luffy-avatar img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));
+      transform-origin: bottom right;
+      animation: floatAvatar 5s ease-in-out infinite;
+      transition: filter 0.3s ease;
+    }
+    .luffy-avatar:hover img {
+      filter: drop-shadow(0 15px 30px rgba(255,0,0,0.4));
+    }
+    @keyframes floatAvatar {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
+    }
+    @media (max-width: 768px) {
+      .luffy-chatbot { bottom: -10px; right: -15px; }
+      .luffy-avatar { height: 230px; }
+      .luffy-speech-bubble { font-size: 1.05rem; padding: 14px 20px; max-width: 250px; margin-right: 15px; }
+    }
+  </style>
+
+  <!-- ■ HIRE ME MODAL -->
+  <div id="hire-modal" class="hire-modal">
+    <div class="hire-modal-backdrop"></div>
+    <div class="hire-modal-container">
+      <button class="hire-modal-close" aria-label="Close modal">&times;</button>
+      
+      <div class="hire-modal-content">
+        <div class="hire-modal-header">
+          <div class="section-label">Alliance</div>
+          <h2 class="hire-modal-title">Ready to <em>Collabo</em>?</h2>
+          <p class="hire-modal-subtitle">Tell me about your project and let's set sail.</p>
+        </div>
+
+        <form action="https://formspree.io/f/mkokbkbb" method="POST" class="hire-form">
+          <input type="hidden" name="_to" value="akashacherjeep9831@gmail.com">
+          <input type="hidden" name="_subject" value="New Hire Request from Portfolio!">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="h-name">Full Name</label>
+              <input type="text" id="h-name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="h-email">Email Address</label>
+              <input type="email" id="h-email" name="email" placeholder="email@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="h-work">What work do you have?</label>
+            <select id="h-work" name="work_type" required>
+              <option value="" disabled selected>Select service type</option>
+              <option value="ui-design">UI/UX Design</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="fullstack">Full Stack Project</option>
+              <option value="collaboration">Long-term Collaboration</option>
+              <option value="consultation">Creative Consultation</option>
+              <option value="other">Something Else Entirely</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="h-details">Project Details</label>
+            <textarea id="h-details" name="details" rows="4" placeholder="Briefly describe your vision or what we can build together..." required></textarea>
+          </div>
+
+          <button type="submit" class="hire-submit-btn">
+            <span>Send Message</span>
+          </button>
+        </form>
+
+        <div class="hire-modal-footer">
+            <p>Direct contact: <a href="mailto:akashacherjeep9831@gmail.com">akashacherjeep9831@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & Plugins (Consolidated at end) -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <!-- ■ AUDIO ENGINE FOR Tactile Feedback -->
+  <script>
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    function playBeep(freq = 440, type = 'sine', duration = 0.05, volume = 0.02) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    }
+
+    // Attach to interactive elements
+    document.addEventListener('mouseover', (e) => {
+      const target = e.target.closest('a, button, .project-card, .map-hotspot');
+      if (target) playBeep(660, 'sine', 0.02, 0.005);
+    });
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('a, button, .project-card, .map-hotspot');
+      if (target) playBeep(880, 'triangle', 0.1, 0.03);
+    });
+  </script>
+</body>
+</html>
